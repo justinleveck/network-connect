@@ -15,15 +15,15 @@ A bash / applescript to automatically connect to a VPN via Juniper's Network Con
 
     git pull
 
-## Usage
-
-    network
-
 ## Quick Guide
 
 Edit the network.plist file with your values.
 
     vim ~/network.plist
+
+Run the following in your terminal
+
+    network
 
 ## Configuration File
 
