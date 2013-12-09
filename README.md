@@ -29,10 +29,10 @@ Edit the network.plist file with your values.
     <plist version="1.0">
     <dict>
       <key>username</key>
-        <string>**User Name**</string>
+        <string>User Name</string>
         <key>pw</key>
-        <string>**Password**</string
-        <key>**gatewayHostName**</key>
-        <string>**Gateway Host Name**</string>
+        <string>Password</string
+        <key>gatewayHostName</key>
+        <string>Gateway Host Name</string>
     </dict>
     </plist>
