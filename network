@@ -8,7 +8,7 @@ set rsatoken to ""
 set plistFile to "~/network.plist"
 set gatewayHostName to (do shell script "defaults read " & plistFile & " gatewayHostName")
 set username to (do shell script "defaults read " & plistFile & " username")
-set pw to (do shell script "defaults read " & plistFile & " username")
+set pw to (do shell script "defaults read " & plistFile & " pw")
 
 repeat
   tell application "SecurID" to activate
