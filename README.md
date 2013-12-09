@@ -1,0 +1,31 @@
+# Juniper Network Connect
+
+A bash / applescript to automatically connect a VPN via Juniper's Network Connect client.
+
+## Installation:
+
+    git clone git@github.com:justinleveck/network-connect.git ~/
+    chmod u+x ~/network-connect/network
+    ln -s ~/network-connect/network ~/bin/network
+
+## Upgrade:
+
+    cd ~/network-connect
+
+    git pull
+
+## Quick Guide
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>username</key>
+        <string>User Name</string>
+        <key>pw</key>
+        <string>Password</string
+        <key>gatewayHostName</key>
+        <string>Gateway Host Name</string>
+    </dict>
+    </plist>
