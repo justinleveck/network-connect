@@ -1,6 +1,6 @@
 # Juniper Network Connect
 
-A bash / applescript to automatically connect a VPN via Juniper's Network Connect client.
+A bash / applescript to automatically connect to a VPN via Juniper's Network Connect client.
 
 ## Installation:
 
