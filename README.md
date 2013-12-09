@@ -7,6 +7,7 @@ A bash / applescript to automatically connect to a VPN via Juniper's Network Con
     git clone git@github.com:justinleveck/network-connect.git ~/
     chmod u+x ~/network-connect/network
     ln -s ~/network-connect/network ~/bin/network
+    ln -s ~/network-connect/network/network.plist ~/network.plist
 
 ## Upgrade:
 
@@ -15,6 +16,12 @@ A bash / applescript to automatically connect to a VPN via Juniper's Network Con
     git pull
 
 ## Quick Guide
+
+Edit the network.plist file with your values.
+
+    vim ~/network.plist
+
+## Configuration File
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
