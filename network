@@ -1,0 +1,47 @@
+#!/usr/bin/osascript
+
+global rsatoken
+set shortDelay to 0.2
+property appName : "Network Connect"
+
+set rsatoken to ""
+set plistFile to "~/network.plist"
+set gatewayHostName to (do shell script "defaults read " & plistFile & " gatewayHostName")
+set username to (do shell script "defaults read " & plistFile & " username")
+set pw to (do shell script "defaults read " & plistFile & " username")
+
+repeat
+  tell application "SecurID" to activate
+  try
+    tell application "System Events"
+      tell process "SecurID"
+        set rsatoken to get value of text field 1 of window 1
+      end tell
+    end tell
+    if rsatoken > 0 then exit repeat
+  on error theError number errorNumber
+    --display dialog "There was an error: " & (errorNumber as text) & return & return & theError buttons {"OK"} default button 1 with icon stop
+  end try
+end repeat
+
+tell application "Network Connect" to activate
+delay 5
+tell application "Network Connect"
+  if connected then
+    sign out
+    -- Need to give Network Connect time to log out. If not, it will bother us next time with the "Continue the session" stuff. That's more buttons to click, so let's log out the right way.
+    delay 5
+    quit
+  else
+    connect to gatewayHostName
+    delay 5
+    tell application "System Events"
+      set value of text field 1 of group 7 of UI element 1 of scroll area 1 of window appName of application process appName to username
+      set value of text field 1 of group 10 of UI element 1 of scroll area 1 of window appName of application process appName to rsatoken
+      set value of text field 1 of group 13 of UI element 1 of scroll area 1 of window appName of application process appName to pw
+      click button "Sign In" of group 17 of UI element 1 of scroll area 1 of window appName of application process appName
+      -- AppleScript prints the last object that's returned. We don't want it to print the button that it fetched, so just return nothing.
+      return
+    end tell
+  end if
+end tell
